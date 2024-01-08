@@ -7,6 +7,9 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
 	<style>
 		body{
 			overflow:hidden;
@@ -15,10 +18,10 @@
 		#bgimage{
 			z-index: -1;
 			max-width: 100%;
+			width:100%;
+			height:100%;
 			max-height: 100%;  
 			position: absolute;
-			margin:auto;
-			object-fit: cover;
 			top:0;
 			bottom:0;
 			left:0;
@@ -42,7 +45,7 @@
 			align-items: center;
 			
 		}
-		p{
+		#doch{
 			color: #042F44;
 			position:absolute;			
 			font-family: 'Italiana', sans-serif;
@@ -51,8 +54,80 @@
 			font-weight: 400;
 			transform:rotate(-90deg);
 			left:-5%;
-			top:27%;
+			top:25%;
 			margin:0px;
+			
+		}
+		.navbar{
+			z-index: 1;
+			position:absolute;
+			display:flex;
+			gap:24px;
+			color: #042F44;
+			font-weight:600;
+			font-size: calc(0.75vw + 0.5rem);
+			font-family: 'Italiana', sans-serif;
+			position:absolute;
+			right:2.5%;
+			top:1.5%;
+			transition: 0.29s ease-in-out;
+
+		}
+		.navb {
+			color: #042F44;
+			transition: 0.35s ease-in-out;
+			position: relative;
+			cursor:default; 
+		}
+
+		.navb:hover {
+			
+			text-decoration: none; 
+		}
+
+		.navb::before {
+			content: "";
+			position: absolute;
+			width: 0%;
+			height: 0.6px;
+			bottom: -0.6px; 
+			left: 0%; 
+			background-color: #042F44;
+			visibility: hidden;
+			transition: all .3s ease-in-out;
+			transform-origin: center;
+		}
+
+		.navb:hover::before {
+			width: 100%;
+			visibility: visible;
+			transform-origin:center;
+		}
+				
+		#bar{
+			z-index: 1;
+            height:calc(0.75vw + 15.5px	);
+			width:2px;
+			background-color: #042F44;
+		}
+		.about{
+			z-index: 1;
+			position:absolute;
+			right:3%;
+			top:60%;
+			width:251px;
+			color:#DEDCE1;
+		}
+		#desc{
+			font-size:calc(0.75vw + 0.5rem);
+			font-family: 'Italiana', sans-serif;
+		}
+		#craving{
+			font-size: calc(3vw + 2rem);
+			position:absolute;
+			right:15%;
+			top:25%;
+			font-family: 'Italianno', cursive;
 			
 		}
 	</style>
@@ -60,7 +135,20 @@
 <body>
 	<img id="bgimage" src="https://cdn.discordapp.com/attachments/1181225884825419787/1193907469383127190/background.jpg?ex=65ae6bfa&is=659bf6fa&hm=3a8ef43b230b8ff08c13463e7afd213be9d3a17d870b40424f63a9b1202106d8&" alt="background">
 	<div class="container">
-		<p>DOCH</p>
+		<p id="doch">DOCH</p>
+		<div class="navbar">
+			<p href="index.html" class="navb">Home</p>
+			
+            <p href="about.html" class="navb">About</p>
+			
+            <p href="contact.html" class="navb">Contact</p>
+		</div>
+		<div class="about">	
+			<p id="desc">A small effort to guide souls to their </p><span id="craving">cravings</span>
+		</div>
+		<div class="but">
+
+		</div>
 	</div>
 	
 </body>
