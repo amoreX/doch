@@ -1,2 +1,2 @@
 # ecomlite
-https://amorex.github.io/ecomlite/
+https://ecomlite.onrender.com
