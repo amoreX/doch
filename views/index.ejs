@@ -11,9 +11,21 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
 	<style>
+		.circle-cursor {
+			z-index: 1;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #042f44dc; 
+            position: absolute;
+            pointer-events: none; 
+			transition: transform 0.191s ease-out;
+			
+        }
 		body{
 			overflow:hidden;
 			margin:0;
+			cursor: none;
 		}
 		#bgimage{
 			z-index: -1;
@@ -27,9 +39,22 @@
 			left:0;
 			right:0;
 			transform:scale(1.4);
+			opacity:0;
+			animation:2s fadeIn ease-in-out;
 		}
+		@keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+		
 		.container{
-			z-index: 1;
+			cursor: none;
+			z-index: 0;
 			position: absolute;
 			left: 5.3%;
 			top: 7.3%;
@@ -43,9 +68,13 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			opacity:0;
+			animation:2s fadeIn ease-in-out;
 			
 		}
 		#doch{
+			cursor: none;
+			z-index: 3;
 			color: #042F44;
 			position:absolute;			
 			font-family: 'Italiana', sans-serif;
@@ -56,10 +85,14 @@
 			left:-5%;
 			top:25%;
 			margin:0px;
+			opacity:0;
+			animation:4s fadeIn ease-in;
+			
 			
 		}
 		.navbar{
-			z-index: 1;
+			cursor: none;
+			z-index: 2;
 			position:absolute;
 			display:flex;
 			gap:24px;
@@ -71,17 +104,21 @@
 			right:2.5%;
 			top:1.5%;
 			transition: 0.29s ease-in-out;
+			opacity:0;
+			animation:4s fadeIn ease-in;
 
 		}
 		.navb {
+			cursor: none;
 			color: #042F44;
 			transition: 0.35s ease-in-out;
 			position: relative;
-			cursor:default; 
+			
+			transform-origin: left center;
 		}
 
 		.navb:hover {
-			
+			transform:rotate(-11deg);
 			text-decoration: none; 
 		}
 
@@ -95,7 +132,7 @@
 			background-color: #042F44;
 			visibility: hidden;
 			transition: all .3s ease-in-out;
-			transform-origin: center;
+			transform-origin: left center;
 		}
 
 		.navb:hover::before {
@@ -105,24 +142,32 @@
 		}
 				
 		#bar{
+			cursor: none;
 			z-index: 1;
             height:calc(0.75vw + 15.5px	);
 			width:2px;
 			background-color: #042F44;
 		}
 		.about{
-			z-index: 1;
+			cursor: none;
+			z-index: 3;
 			position:absolute;
 			right:3%;
 			top:60%;
 			width:251px;
 			color:#DEDCE1;
+			animation:6s fadeIn ease-in;
+			
 		}
 		#desc{
+			cursor: none;
+			z-index: 3;
 			font-size:calc(0.75vw + 0.5rem);
 			font-family: 'Italiana', sans-serif;
 		}
 		#craving{
+			cursor: none;
+			z-index: 3;
 			font-size: calc(3vw + 2rem);
 			position:absolute;
 			right:15%;
@@ -134,6 +179,7 @@
 </head>
 <body>
 	<img id="bgimage" src="https://cdn.discordapp.com/attachments/1181225884825419787/1193907469383127190/background.jpg?ex=65ae6bfa&is=659bf6fa&hm=3a8ef43b230b8ff08c13463e7afd213be9d3a17d870b40424f63a9b1202106d8&" alt="background">
+	<div class="circle-cursor"></div>
 	<div class="container">
 		<p id="doch">DOCH</p>
 		<div class="navbar">
@@ -148,6 +194,36 @@
 
 		</div>
 	</div>
+	<script>
+
+		document.addEventListener('DOMContentLoaded', function() {
+            // Code to run when the page is loaded
+            const circleCursor = document.querySelector('.circle-cursor');
+
+            document.addEventListener('mousemove', function(e) {
+                // Update the position of the circle based on mouse movement
+                const x = e.clientX - circleCursor.clientWidth / 2;
+                const y = e.clientY - circleCursor.clientHeight / 2;
+
+                circleCursor.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+        
+        window.addEventListener('load', function () {
+            var bgImage = document.getElementById('bgimage');
+            bgImage.style.opacity = 1;
+			var con=document.querySelectorAll('.container');
+			con[0].style.opacity = 1;
+			var navbar = document.querySelectorAll('.navbar');
+			navbar[0].style.opacity=1;
+			var dochh = document.getElementById('doch');
+			dochh.style.opacity=1;
+			var ab = document.querySelectorAll('.about');
+			ab[0].style.opacity=1;
+        });
+
+		
+    </script>
 	
 </body>
 </html>
