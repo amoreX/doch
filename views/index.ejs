@@ -19,7 +19,7 @@
             background-color: #042f44dc; 
             position: absolute;
             pointer-events: none; 
-			transition: transform 0.191s ease-out;
+			transition:  0.191s ease-out;
 			
         }
 		body{
@@ -83,9 +83,11 @@
 			font-weight: 400;
 			transform:rotate(-90deg);
 			left:-5%;
-			top:25%;
+			top:12%;
 			margin:0px;
 			opacity:0;
+			border-radius:24px;
+			transition:0.38s ease-in-out;
 			animation:4s fadeIn ease-in;
 			
 			
@@ -154,6 +156,7 @@
 			right:3%;
 			top:60%;
 			width:251px;
+			/* height:200px; */
 			color:#DEDCE1;
 			animation:6s fadeIn ease-in;
 			
@@ -174,13 +177,29 @@
 			font-family: 'Italianno', cursive;
 			
 		}
+		.but{
+			cursor: none;
+			display:flex;
+			z-index: 3;
+			position:absolute;
+			right:7%;
+			gap:56px;
+			top:86%;
+			font-size:calc(0.75vw + 0.5rem);
+			font-family: 'Italiana', sans-serif;
+			color:#DEDCE1;
+			animation:7.4s fadeIn ease-in;
+		}
 	</style>
 </head>
 <body>
 	<img id="bgimage" src="https://cdn.discordapp.com/attachments/1181225884825419787/1193907469383127190/background.jpg?ex=65ae6bfa&is=659bf6fa&hm=3a8ef43b230b8ff08c13463e7afd213be9d3a17d870b40424f63a9b1202106d8&" alt="background">
-	<div class="circle-cursor"></div>
 	<div class="container">
-		<p id="doch">DOCH</p>
+		<div class="circle-cursor"></div>
+		<div id="doch">
+			<p >DOCH</p>     
+			<!-- dot map in js learn hahahahaha  -->
+		</div>
 		<div class="navbar">
 			<p href="index.html" class="navb">Home</p>
             <p href="about.html" class="navb">About</p>
@@ -190,19 +209,50 @@
 			<p id="desc">A small effort to guide souls to their </p><span id="craving">cravings</span>
 		</div>
 		<div class="but">
-
+			<p id="tech">Tech</p>
+			<p id="dom">Domestic</p>
 		</div>
 	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
 	<script>
 
 		document.addEventListener('DOMContentLoaded', function() {
             const circleCursor = document.querySelector('.circle-cursor');
+			const dochText = document.getElementById('doch');
+			const aboutText = document.querySelector('.about');
 
             document.addEventListener('mousemove', function(e) {
-                const x = e.clientX - circleCursor.clientWidth / 2;
-                const y = e.clientY - circleCursor.clientHeight / 2; //same concept as parallax 
-
+                const x = e.clientX - window.innerWidth / 2;
+                const y = e.clientY - innerHeight / 2; //same concept as parallax 
                 circleCursor.style.transform = `translate(${x}px, ${y}px)`;
+
+				
+				const distX = Math.abs(e.clientX - (dochText.offsetLeft + dochText.offsetWidth / 2));
+				const distY = Math.abs(e.clientY - (dochText.offsetTop + dochText.offsetHeight / 2));
+				const distX2 = Math.abs(e.clientX - (aboutText.offsetLeft + aboutText.offsetWidth / 2));
+				const distY2 = Math.abs(e.clientY - (aboutText.offsetTop + aboutText.offsetHeight / 2));
+				
+				const thresholdX = dochText.offsetWidth / 1.5;
+				const thresholdY = dochText.offsetHeight / 1.5;
+				const threshold2X = aboutText.offsetWidth / 2.5;
+				const threshold2Y = aboutText.offsetHeight / 2.5;
+
+				
+				if (distX < thresholdX && distY < thresholdY) {
+					dochText.style.color = '#FFFFFF'; 
+					circleCursor.style.width='100px';
+					circleCursor.style.height='100px';
+				} else if (distX2 < threshold2X && distY2 < threshold2Y){
+					// aboutText.style.color = '#FFFFFF'; 
+                    // circleCursor.style.width='100px';
+                    // circleCursor.style.height='100px';
+					 
+				}
+				else{
+					circleCursor.style.width='25px';
+					circleCursor.style.height='25px';
+					dochText.style.color = '#042F44';
+				}
             });
         });
         
