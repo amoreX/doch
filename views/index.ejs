@@ -3,9 +3,65 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>DOCH</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+	<style>
+		body{
+			overflow:hidden;
+			margin:0;
+		}
+		#bgimage{
+			z-index: -1;
+			max-width: 100%;
+			max-height: 100%;  
+			position: absolute;
+			margin:auto;
+			object-fit: cover;
+			top:0;
+			bottom:0;
+			left:0;
+			right:0;
+			transform:scale(1.4);
+		}
+		.container{
+			z-index: 1;
+			position: absolute;
+			left: 5.3%;
+			top: 7.3%;
+			width: 89vw;
+			height: 86vh;
+			border-radius: 19px;
+			border: 2px solid rgba(255, 255, 255, 0.38);
+			background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+			box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+			backdrop-filter: blur(19.799999237060547px);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			
+		}
+		p{
+			color: #042F44;
+			position:absolute;			
+			font-family: 'Italiana', sans-serif;
+			font-size: calc(4vw + 2rem);
+			font-style: normal;
+			font-weight: 400;
+			transform:rotate(-90deg);
+			left:-5%;
+			top:27%;
+			margin:0px;
+			
+		}
+	</style>
 </head>
 <body>
+	<img id="bgimage" src="https://cdn.discordapp.com/attachments/1181225884825419787/1193907469383127190/background.jpg?ex=65ae6bfa&is=659bf6fa&hm=3a8ef43b230b8ff08c13463e7afd213be9d3a17d870b40424f63a9b1202106d8&" alt="background">
+	<div class="container">
+		<p>DOCH</p>
+	</div>
 	
 </body>
 </html>
