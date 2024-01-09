@@ -72,7 +72,7 @@
 			animation:2s fadeIn ease-in-out;
 			
 		}
-		#doch{
+		#d,#o,#c,#h{
 			cursor: none;
 			z-index: 3;
 			color: #042F44;
@@ -82,15 +82,27 @@
 			font-style: normal;
 			font-weight: 400;
 			transform:rotate(-90deg);
-			left:-5%;
-			top:12%;
 			margin:0px;
-			opacity:0;
+			opacity:1;
 			border-radius:24px;
 			transition:0.38s ease-in-out;
 			animation:4s fadeIn ease-in;
-			
-			
+		}
+		#d{
+			left:1%;
+			top:35%;
+		}
+		#o{
+			left:0.75%;
+			top:25%;
+		}
+		#c{
+			left:1%;
+            top:15%;
+		}
+		#h{
+			left:1%;
+			top:5.5%;
 		}
 		.navbar{
 			cursor: none;
@@ -119,7 +131,7 @@
 		}
 
 		.navb:hover {
-			transform:rotate(-11deg);
+			
 			text-decoration: none; 
 		}
 
@@ -196,10 +208,10 @@
 	<img id="bgimage" src="https://cdn.discordapp.com/attachments/1181225884825419787/1193907469383127190/background.jpg?ex=65ae6bfa&is=659bf6fa&hm=3a8ef43b230b8ff08c13463e7afd213be9d3a17d870b40424f63a9b1202106d8&" alt="background">
 	<div class="container">
 		<div class="circle-cursor"></div>
-		<div id="doch">
-			<p >DOCH</p>     
-			<!-- dot map in js learn hahahahaha uwu -->
-		</div>
+		<div class="doch-letter" id="d">D</div>
+		<div class="doch-letter" id="o">O</div>
+		<div class="doch-letter" id="c">C</div>
+		<div class="doch-letter" id="h">H</div>
 		<div class="navbar">
 			<p href="index.html" class="navb">Home</p>
             <p href="about.html" class="navb">About</p>
@@ -218,41 +230,58 @@
 
 		document.addEventListener('DOMContentLoaded', function() {
             const circleCursor = document.querySelector('.circle-cursor');
-			const dochText = document.getElementById('doch');
-			const aboutText = document.querySelector('.about');
+			const dochLetters = document.querySelectorAll('.doch-letter');
 
+			
             document.addEventListener('mousemove', function(e) {
                 const x = e.clientX - window.innerWidth / 2;
                 const y = e.clientY - innerHeight / 2; //same concept as parallax 
                 circleCursor.style.transform = `translate(${x}px, ${y}px)`;
-
-				
-				const distX = Math.abs(e.clientX - (dochText.offsetLeft + dochText.offsetWidth / 2));
-				const distY = Math.abs(e.clientY - (dochText.offsetTop + dochText.offsetHeight / 2));
-				const distX2 = Math.abs(e.clientX - (aboutText.offsetLeft + aboutText.offsetWidth / 2));
-				const distY2 = Math.abs(e.clientY - (aboutText.offsetTop + aboutText.offsetHeight / 2));
-				
-				const thresholdX = dochText.offsetWidth / 1.5;
-				const thresholdY = dochText.offsetHeight / 1.5;
-				const threshold2X = aboutText.offsetWidth / 2.5;
-				const threshold2Y = aboutText.offsetHeight / 2.5;
-
-				
-				if (distX < thresholdX && distY < thresholdY) {
-					dochText.style.color = '#FFFFFF'; 
-					circleCursor.style.width='100px';
-					circleCursor.style.height='100px';
-				} else if (distX2 < threshold2X && distY2 < threshold2Y){
-					// aboutText.style.color = '#FFFFFF'; 
-                    // circleCursor.style.width='100px';
-                    // circleCursor.style.height='100px';
-					 
+				const mouseX = e.clientX / window.innerWidth;
+	            const mouseY = e.clientY / window.innerHeight;
+				console.log(mouseX, mouseY);
+                if (mouseX < 0.12 &&mouseX>0.053 && mouseY > 0.4 && mouseY<0.5) {
+                   	const d=document.getElementById('d');
+					d.style.color="#FFFFFF";
+					o.style.color="#042F44";
+					c.style.color = '#042F44';
+					h.style.color = '#042F44';
+					circleCursor.style.width = '80px';
+                 	circleCursor.style.height = '80px';
+                }else if(mouseX < 0.12 &&mouseX>0.053 && mouseY >0.3 &&mouseY<0.4){
+					const o=document.getElementById('o');
+					d.style.color = '#042F44';
+					o.style.color="#FFFFFF";
+					c.style.color = '#042F44';
+					h.style.color = '#042F44';
+					circleCursor.style.width = '80px';
+                 	circleCursor.style.height = '80px';
+				}else if(mouseX < 0.12 &&mouseX>0.053 && mouseY<0.3 && mouseY>0.2){
+					const c=document.getElementById('c');
+					c.style.color="#FFFFFF";
+					d.style.color = '#042F44';
+					h.style.color = '#042F44';
+					o.style.color = '#042F44';
+					circleCursor.style.width = '80px';
+                 	circleCursor.style.height = '80px';
+				}else if(mouseX < 0.12 &&mouseX>0.06 && mouseY<0.2 && mouseY>0.1){
+					const h=document.getElementById('h');
+                    h.style.color="#FFFFFF";
+                    c.style.color = '#042F44';
+                    d.style.color = '#042F44';
+                    o.style.color = '#042F44';
+                    circleCursor.style.width = '80px';
+                    circleCursor.style.height = '80px';
 				}
-				else{
-					circleCursor.style.width='25px';
-					circleCursor.style.height='25px';
-					dochText.style.color = '#042F44';
-				}
+				 else {
+					circleCursor.style.width = '25px';
+                 	circleCursor.style.height = '25px';
+                    d.style.color = '#042F44';
+					o.style.color = '#042F44';
+					c.style.color = '#042F44';
+					h.style.color = '#042F44';
+                }
+
             });
         });
         
