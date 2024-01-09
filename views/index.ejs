@@ -19,7 +19,7 @@
             background-color: #042f44dc; 
             position: absolute;
             pointer-events: none; 
-			transition:  0.191s ease-out;
+			transition:  0.1s ease-out;
 			
         }
 		body{
@@ -184,10 +184,24 @@
 			z-index: 3;
 			font-size: calc(3vw + 2rem);
 			position:absolute;
-			right:15%;
-			top:25%;
+			right:11%;
+			padding-left: 4px;
+			padding-right:4px;
+			margin:none;
+			top:47%;
 			font-family: 'Italianno', cursive;
 			
+		}
+		#cravingspan{
+			z-index:2;
+			position:absolute;
+			padding-right:174px;
+			padding-top:70px;
+			top:70%;
+			right:11%;
+			border-radius:11px;
+			background-color:none;
+			transition:0.38s ease-out;
 		}
 		.but{
 			cursor: none;
@@ -290,6 +304,7 @@
 		</div>
 		<div class="about">	
 			<p id="desc">A small effort to guide souls to their </p><span id="craving">cravings</span>
+			<div id="cravingspan"></div>
 		</div>
 		<div class="but">
 			<p id="tech">Tech</p>
@@ -316,9 +331,13 @@
                 circleCursor.style.transform = `translate(${x}px, ${y}px)`;
 				const mouseX = e.clientX / window.innerWidth;
 	            const mouseY = e.clientY / window.innerHeight;
-				
+				console.log(mouseX, mouseY);
+				const d=document.getElementById('d');
+				const o=document.getElementById('o');
+				const c=document.getElementById('c');
+				const h=document.getElementById('h');
+				const sp=document.getElementById('cravingspan');
                 if (mouseX < 0.12 &&mouseX>0.053 && mouseY > 0.4 && mouseY<0.5) {
-                   	const d=document.getElementById('d');
 					d.style.color="#FFFFFF";
 					o.style.color="#042F44";
 					c.style.color = '#042F44';
@@ -327,7 +346,6 @@
 					circleCursor.style.width = '80px';
                  	circleCursor.style.height = '80px';
                 }else if(mouseX < 0.12 &&mouseX>0.053 && mouseY >0.3 &&mouseY<0.4){
-					const o=document.getElementById('o');
 					d.style.color = '#042F44';
 					o.style.color="#FFFFFF";
 					c.style.color = '#042F44';
@@ -336,7 +354,6 @@
 					circleCursor.style.width = '80px';
                  	circleCursor.style.height = '80px';
 				}else if(mouseX < 0.12 &&mouseX>0.053 && mouseY<0.3 && mouseY>0.22){
-					const c=document.getElementById('c');
 					c.style.color="#FFFFFF";
 					d.style.color = '#042F44';
 					h.style.color = '#042F44';
@@ -345,7 +362,6 @@
 					circleCursor.style.width = '80px';
                  	circleCursor.style.height = '80px';
 				}else if(mouseX < 0.12 &&mouseX>0.06 && mouseY<0.22 && mouseY>0.15){
-					const h=document.getElementById('h');
                     h.style.color="#FFFFFF";
                     c.style.color = '#042F44';
                     d.style.color = '#042F44';
@@ -353,10 +369,22 @@
 					
                     circleCursor.style.width = '80px';
                     circleCursor.style.height = '80px';
+				}else if(mouseX>0.78 && mouseX<0.9 &&mouseY<0.74 && mouseY>0.669){
+					console.log(x,y);
+					// 0.84 0.7
+					circleCursor.style.transform = `translate(530px, 160px)`;
+		
+					circleCursor.style.width = '70px';
+                    circleCursor.style.height = '70px';
+					sp.style.backgroundColor = "#042f44dc";
+					circleCursor.style.opacity = "0";
+
 				}
 				 else {
+					circleCursor.style.opacity = "1";
 					circleCursor.style.width = '25px';
                  	circleCursor.style.height = '25px';
+					sp.style.backgroundColor = "transparent";
                     d.style.color = '#042F44';
 					o.style.color = '#042F44';
 					c.style.color = '#042F44';

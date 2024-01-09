@@ -20,7 +20,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
-app.listen(process.env.PORT || port, ()=>{
+httpsServer.listen(process.env.PORT || port, ()=>{
     console.log(`listening on port ${port}`);
 })
 
