@@ -202,6 +202,77 @@
 			color:#DEDCE1;
 			animation:7.4s fadeIn ease-in;
 		}
+		#tech{
+			transition:0.35s ease-in-out;
+			position: relative;
+			transform-origin: left center;
+		}
+		#tech:hover{
+			text-decoration: none;
+		}
+		#tech::before {
+			content: "";
+			position: absolute;
+			width: 0%;
+			height: 0.6px;
+			bottom: -0.6px; 
+			left: 0%; 
+			background-color: #ffffff;
+			visibility: hidden;
+			transition: all .3s ease-in-out;
+			transform-origin: left center;
+
+		}
+		#tech:hover::before {
+			width: 100%;
+			visibility: visible;
+			transform-origin:center;
+		}
+		#dom{
+			transition:0.35s ease-in-out;
+			position: relative;
+			transform-origin: left center;
+		}
+		#dom:hover{
+			text-decoration: none;
+		}
+		#dom::before {
+			content: "";
+			position: absolute;
+			width: 0%;
+			height: 0.6px;
+			bottom: -0.6px; 
+			left: 0%; 
+			background-color: #ffffff;
+			visibility: hidden;
+			transition: all .3s ease-in-out;
+			transform-origin: left center;
+
+		}
+		#dom:hover::before {
+			width: 100%;
+			visibility: visible;
+			transform-origin:center;
+		}
+		#arrow{
+			position:absolute;
+			left:23%;
+			top:19%;
+			transition: 0.38s ease-in-out;
+		}
+		#arrow2{
+			position:absolute;
+			left:99%;
+			top:19%;
+			transition: 0.38s ease-in-out;
+		}
+		#tech:hover + #arrow{
+			transform: rotate(41.41deg);
+		}
+		#dom:hover + #arrow2{
+			transform: rotate(41.41deg);
+		}
+		
 	</style>
 </head>
 <body>
@@ -222,7 +293,13 @@
 		</div>
 		<div class="but">
 			<p id="tech">Tech</p>
+			<svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
+				<path d="M0.926366 2.72985L7.9486 2.59117L8.7695 8.90478L10.9287 8.86002L9.86451 0.59773L0.676274 0.788214L0.926366 2.72985Z" fill="white"/>
+			</svg>
 			<p id="dom">Domestic</p>
+			<svg id="arrow2" xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
+				<path d="M0.926366 2.72985L7.9486 2.59117L8.7695 8.90478L10.9287 8.86002L9.86451 0.59773L0.676274 0.788214L0.926366 2.72985Z" fill="white"/>
+			</svg>
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
