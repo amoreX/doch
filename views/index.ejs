@@ -326,12 +326,12 @@
 			
             document.addEventListener('mousemove', function(e) {
                 const x = e.clientX - window.innerWidth / 2;
-                const y = e.clientY - innerHeight / 2; //same concept as parallax 
+                const y = e.clientY - window.innerHeight / 2; //same concept as parallax 
 				// console.log(x, y);
                 circleCursor.style.transform = `translate(${x}px, ${y}px)`;
 				const mouseX = e.clientX / window.innerWidth;
 	            const mouseY = e.clientY / window.innerHeight;
-				console.log(mouseX, mouseY);
+				//console.log(mouseX, mouseY);
 				const d=document.getElementById('d');
 				const o=document.getElementById('o');
 				const c=document.getElementById('c');
@@ -370,12 +370,14 @@
                     circleCursor.style.width = '80px';
                     circleCursor.style.height = '80px';
 				}else if(mouseX>0.78 && mouseX<0.9 &&mouseY<0.74 && mouseY>0.669){
-					console.log(x,y);
+					//console.log(x,y);
 					// 0.84 0.7
-					circleCursor.style.transform = `translate(530px, 160px)`;
+					const k=sp.getBoundingClientRect();
+					//console.log(k.x,k.y);
+					//circleCursor.style.transform = `translate(530px, 160px)`;
 		
-					circleCursor.style.width = '70px';
-                    circleCursor.style.height = '70px';
+					circleCursor.style.width = '65px';
+                    circleCursor.style.height = '65px';
 					sp.style.backgroundColor = "#042f44dc";
 					circleCursor.style.opacity = "0";
 

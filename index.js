@@ -16,6 +16,7 @@ const httpsServer = https.createServer(credentials, app);
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
+
 app.use(express.static('public')); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
