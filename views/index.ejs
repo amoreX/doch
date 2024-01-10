@@ -323,20 +323,22 @@
 		document.addEventListener('DOMContentLoaded', function() {
             const circleCursor = document.querySelector('.circle-cursor');
 			const dochLetters = document.querySelectorAll('.doch-letter');
+			const sp=document.getElementById('cravingspan');
+			const p=sp.getBoundingClientRect();
+			console.log(p.x);
 			
             document.addEventListener('mousemove', function(e) {
                 const x = e.clientX - window.innerWidth / 2;
-                const y = e.clientY - innerHeight / 2; //same concept as parallax 
+                const y = e.clientY - window.innerHeight / 2; //same concept as parallax 
 				// console.log(x, y);
                 circleCursor.style.transform = `translate(${x}px, ${y}px)`;
 				const mouseX = e.clientX / window.innerWidth;
 	            const mouseY = e.clientY / window.innerHeight;
-				console.log(mouseX, mouseY);
+				// console.log(mouseX, mouseY);
 				const d=document.getElementById('d');
 				const o=document.getElementById('o');
 				const c=document.getElementById('c');
 				const h=document.getElementById('h');
-				const sp=document.getElementById('cravingspan');
                 if (mouseX < 0.12 &&mouseX>0.053 && mouseY > 0.4 && mouseY<0.5) {
 					d.style.color="#FFFFFF";
 					o.style.color="#042F44";
@@ -370,14 +372,15 @@
                     circleCursor.style.width = '80px';
                     circleCursor.style.height = '80px';
 				}else if(mouseX>0.78 && mouseX<0.9 &&mouseY<0.74 && mouseY>0.669){
-					console.log(x,y);
+					// console.log(x,y);
 					// 0.84 0.7
-					circleCursor.style.transform = `translate(530px, 160px)`;
-		
+					// circleCursor.style.transform = `translate(389px, 148.5px)`;
+					circleCursor.style.transform=`translate(${p.x}px,${p.y}px)`;
+					
 					circleCursor.style.width = '70px';
                     circleCursor.style.height = '70px';
 					sp.style.backgroundColor = "#042f44dc";
-					circleCursor.style.opacity = "0";
+					// circleCursor.style.opacity = "0";
 
 				}
 				 else {
