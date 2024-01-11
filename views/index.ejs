@@ -331,12 +331,13 @@
 
 		document.addEventListener('DOMContentLoaded', function() {
 
-			gsap.from(".container",0.56,{
-				delay:2,
+			gsap.from(".container",1.19,{
+				delay:1.5,
+				transform:"scale(0.1)",
 				y:700
 			})
-			gsap.to(".container",0.56,{
-				delay:1.8,
+			gsap.to(".container",0.65,{
+				delay:1.2,
 				opacity:1
 			})
 			gsap.to("#bgimage",1.5,{
