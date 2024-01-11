@@ -4,15 +4,17 @@ import {dirname} from 'path';
 import { fileURLToPath } from 'url';
 import axios from 'axios';
 import cors from 'cors';
-import fs from 'fs';
-import https from 'https';
+// import NewsAPI from 'newsapi';
+// import fs from 'fs';
+// import https from 'https';
 
 const app = express();
 const port = 3000;
-const privateKey = fs.readFileSync("doch-privateKey.key", 'utf8');
-const certificate = fs.readFileSync('doch.crt', 'utf8');
-const credentials = { key: privateKey, cert: certificate};
-const httpsServer = https.createServer(credentials, app);
+// const newsapi = new NewsAPI('cc4e82057511460fa37affd759119e03');
+// const privateKey = fs.readFileSync("doch-privateKey.key", 'utf8');
+// const certificate = fs.readFileSync('doch.crt', 'utf8');
+// const credentials = { key: privateKey, cert: certificate};
+// const httpsServer = https.createServer(credentials, app);
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
@@ -32,5 +34,17 @@ app.get('/', (req, res) => {
 
 app.get('/tech', (req, res) =>{
     console.log('Getting tech');
-    res.render('tech.ejs');
+    res.render('tech.ejs',{"news1":"","news2":"","news3":""});
 });
+
+app.post("/submit",async(req, res)=>{
+    var prompt=req.body['lat'];
+    console.log(prompt);
+    const news=await axios.get(`https://newsapi.org/v2/everything?q=${prompt}&pageSize=3&language=en&apiKey=cc4e82057511460fa37affd759119e03`);
+    var newsdata=news.data;
+    var article1=newsdata.articles[0].description;
+    var article2=newsdata.articles[1].description;
+    var article3=newsdata.articles[2].description;
+    console.log(newsdata);
+    res.render('tech.ejs',{"news1":article1,"news2":article2,"news3":article3});
+})
