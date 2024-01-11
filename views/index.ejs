@@ -179,14 +179,17 @@
 			right:11%;
 			padding-left: 4px;
 			padding-right:4px;
-			margin:none;
-			top:47%;
+			top:45%;
 			font-family: 'Italianno', cursive;
+			transition: 0.119s ease-in-out;
 			
 		}
-		#craving:hover + #cravingspan{
-			background-color: #042f44dc;
+		#craving:hover{
+			color:#042f44dc;
 		}
+		/* #craving:hover + #cravingspan{
+			background-color: #042f44dc;
+		} */
 		#cravingspan{
 			z-index:2;
 			position:absolute;
@@ -417,7 +420,7 @@
 					
                     circleCursor.style.width = '80px';
                     circleCursor.style.height = '80px';
-				}else if(mouseX>0.78 && mouseX<0.9 &&mouseY<0.74 && mouseY>0.669){
+				}else if(mouseX>0.78 && mouseX<0.9 &&mouseY<0.77 && mouseY>0.64){
 					//console.log(x,y);
 					// 0.84 0.7
 					const k=sp.getBoundingClientRect();
