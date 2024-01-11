@@ -42,15 +42,7 @@
 			opacity:0;
 			/* animation:2s fadeIn ease-in-out; */
 		}
-		@keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
+		
 		
 		.container{
 			cursor: none;
@@ -83,7 +75,7 @@
 			font-weight: 400;
 			transform:rotate(-90deg);
 			margin:0px;
-			opacity:1;
+			opacity:0;
 			border-radius:24px;
 			transition:0.38s ease-in-out;
 			/* animation:4s fadeIn ease-in; */
@@ -344,7 +336,27 @@
 				delay:0.65,
 				opacity:1
 			})
-
+			gsap.to("#d",0.65,{
+				delay:2.5,
+				opacity:1,
+				y:30				
+			})
+			gsap.to("#o",0.65,{
+				delay:2.75,
+				opacity:1,
+				y:30				
+			})
+			gsap.to("#c",0.65,{
+				delay:2.95,
+				opacity:1,
+				y:30				
+			})
+			gsap.to("#h",0.65,{
+				delay:3.15,
+				opacity:1,
+				y:30				
+			})
+			
 			const techButton = document.getElementById('tech');
 
 			techButton.addEventListener('click', function() {
@@ -373,7 +385,7 @@
 				const c=document.getElementById('c');
 				const h=document.getElementById('h');
 				const sp=document.getElementById('cravingspan');
-                if (mouseX < 0.12 &&mouseX>0.053 && mouseY > 0.4 && mouseY<0.5) {
+                if (mouseX < 0.12 &&mouseX>0.053 && mouseY > 0.44 && mouseY<0.54) {
 					d.style.color="#FFFFFF";
 					o.style.color="#042F44";
 					c.style.color = '#042F44';
@@ -381,7 +393,7 @@
 					
 					circleCursor.style.width = '80px';
                  	circleCursor.style.height = '80px';
-                }else if(mouseX < 0.12 &&mouseX>0.053 && mouseY >0.3 &&mouseY<0.4){
+                }else if(mouseX < 0.12 &&mouseX>0.053 && mouseY >0.34 &&mouseY<0.44){
 					d.style.color = '#042F44';
 					o.style.color="#FFFFFF";
 					c.style.color = '#042F44';
@@ -389,7 +401,7 @@
 					
 					circleCursor.style.width = '80px';
                  	circleCursor.style.height = '80px';
-				}else if(mouseX < 0.12 &&mouseX>0.053 && mouseY<0.3 && mouseY>0.22){
+				}else if(mouseX < 0.12 &&mouseX>0.053 && mouseY<0.34 && mouseY>0.26){
 					c.style.color="#FFFFFF";
 					d.style.color = '#042F44';
 					h.style.color = '#042F44';
@@ -397,7 +409,7 @@
 					o.style.color = '#042F44';
 					circleCursor.style.width = '80px';
                  	circleCursor.style.height = '80px';
-				}else if(mouseX < 0.12 &&mouseX>0.06 && mouseY<0.22 && mouseY>0.15){
+				}else if(mouseX < 0.12 &&mouseX>0.06 && mouseY<0.26 && mouseY>0.19){
                     h.style.color="#FFFFFF";
                     c.style.color = '#042F44';
                     d.style.color = '#042F44';
@@ -432,17 +444,7 @@
             });
         });
         
-        // window.addEventListener('load', function () {
-        //     var bgImage = document.getElementById('bgimage');
-        //     bgImage.style.opacity = 1;
-		// 	var con=document.querySelectorAll('.container');
-		// 	con[0].style.opacity = 1;
-		// 	var navbar = document.querySelectorAll('.navbar');
-		// 	navbar[0].style.opacity=1;
 
-		// 	var ab = document.querySelectorAll('.about');
-		// 	ab[0].style.opacity=1;
-        // });
 
 		
 		function getLocation() {
@@ -461,7 +463,7 @@
 
 		//const t=document.querySelector(".tempsq");
 
-		f//unction ab(){
+		//function ab(){
 		//	t.style.transform="rotate(-90deg)";
 		//}
 
