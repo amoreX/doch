@@ -1,8 +1,88 @@
 <html>
 	<head>
 		<title>Tech</title>
+		<style>
+			.container{
+                display:flex;
+                justify-content: center;
+                flex-direction: column;
+                height:100vh;
+				gap:11px;
+                align-items: center;
+                background-color:transparent;
+            }
+            .inn{
+                color: #000000;
+                background-color: rgba(255, 255, 255, 0.2);
+                border: solid 1px rgba(0, 0, 0, 0.119);
+                border-radius: 24px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+                padding: 10px 15px;
+                font-size: 16px;
+                transition: 0.38s ease;
+                outline: none;
+                width: fit-content;
+                height:100% ;
+                backdrop-filter: blur(200px);
+                resize:none; /* maa chudaye resize  */
+            }
+            .inn:focus{
+                transform: scale(1.15);
+                box-shadow: none;
+                border-radius:8px;
+                border:solid 0.3px rgba(0, 0, 0);
+                box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.404);
+				padding-right: 16px;
+
+            }
+			.submit-button{
+                font: 16px Instrument Sans, sans-serif;;
+                background-color: rgba(255, 255, 255, 0.201);
+                padding:24px;
+                padding-top:8px;
+                padding-bottom:8px;
+                border-radius:8px;
+                border:solid 0.3px rgba(0, 0, 0);
+                transition:0.29s ease-in-out;
+                backdrop-filter: blur(11px);
+                font: 500 16px Atkinson Hyperlegible, -apple-system, Roboto, Helvetica, sans-serif;
+            }
+            .submit-button:hover{
+                transform: scale(1.1);
+                border:solid 0.1px rgba(0, 0, 0, 0.53);
+                background-color: rgba(58, 58, 58, 0.564);
+                color:white;
+                box-shadow:0px 0px 5px rgba(0, 0, 0, 0.334);
+            }
+			.something{
+				display:flex;
+				gap:27px;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Work in progress</h1>
+		<div class="container">
+			<form action="/submit" class="something" method="POST" >
+				<input type="text" name="lat" id="lat" class="inn"placeholder="What you craving?">
+				<input type="submit" value="crave" id="button" class="submit-button">
+			</form>
+			<ul>
+				<% if (news1) { %>
+					<li><div><%= news1 %></div></li>
+				<% } %>
+				
+				<% if (news2) { %>
+					<li><div><%= news2 %></div></li>
+				<% } %>
+				
+				<% if (news3) { %>
+					<li><div><%= news3 %></div></li>
+				<% } %>
+			</ul>
+		</div>
+		<script>
+			//cc4e82057511460fa37affd759119e03
+			
+		</script>
 	</body>
 </html>
