@@ -450,19 +450,7 @@
 
 
 		
-		function getLocation() {
-			if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showPosition);
-			} else {
-			console.log("Geolocation not available in this browser");
-			}
-		}    //GETTING THE LAT AND LONG 
-
-		function showPosition(position) {
-			console.log(position.coords.latitude);
-			console.log(position.coords.longitude);
-		}
-		getLocation();
+		
 
 		//const t=document.querySelector(".tempsq");
 
