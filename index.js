@@ -29,3 +29,8 @@ app.get('/', (req, res) => {
     res.render('index.ejs');
     console.log("Website loaded succesfully");
 })
+
+app.get('/tech', (req, res) =>{
+    console.log('Getting tech');
+    res.render('tech.ejs');
+});

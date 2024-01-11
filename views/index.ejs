@@ -40,7 +40,7 @@
 			right:0;
 			transform:scale(1.4);
 			opacity:0;
-			animation:2s fadeIn ease-in-out;
+			/* animation:2s fadeIn ease-in-out; */
 		}
 		@keyframes fadeIn {
             0% {
@@ -69,7 +69,7 @@
 			justify-content: center;
 			align-items: center;
 			opacity:0;
-			animation:2s fadeIn ease-in-out;
+			/* animation:2s fadeIn ease-in-out; */
 			
 		}
 		#d,#o,#c,#h{
@@ -86,7 +86,7 @@
 			opacity:1;
 			border-radius:24px;
 			transition:0.38s ease-in-out;
-			animation:4s fadeIn ease-in;
+			/* animation:4s fadeIn ease-in; */
 		}
 		#d{
 			left:1%;
@@ -118,8 +118,8 @@
 			right:2.5%;
 			top:1.5%;
 			transition: 0.29s ease-in-out;
-			opacity:0;
-			animation:4s fadeIn ease-in;
+			opacity:1;
+			/* animation:4s fadeIn ease-in; */
 
 		}
 		.navb {
@@ -170,7 +170,7 @@
 			width:251px;
 			/* height:200px; */
 			color:#DEDCE1;
-			animation:6s fadeIn ease-in;
+			/* animation:6s fadeIn ease-in; */
 			
 		}
 		#desc{
@@ -217,7 +217,7 @@
 			font-size:calc(0.75vw + 0.5rem);
 			font-family: 'Italiana', sans-serif;
 			color:#DEDCE1;
-			animation:7.4s fadeIn ease-in;
+			/* animation:7.4s fadeIn ease-in; */
 		}
 		#tech{
 			transition:0.35s ease-in-out;
@@ -289,12 +289,18 @@
 		#dom:hover + #arrow2{
 			transform: rotate(41.41deg);
 		}
+		.tempsq{
+			padding:20px;
+			background-color: #042F44;
+			transition:0.38s ease-in-out;
+		}
 		
 	</style>
 </head>
 <body>
 	<img id="bgimage" src="https://cdn.discordapp.com/attachments/1181225884825419787/1193907469383127190/background.jpg?ex=65ae6bfa&is=659bf6fa&hm=3a8ef43b230b8ff08c13463e7afd213be9d3a17d870b40424f63a9b1202106d8&" alt="background">
 	<div class="container">
+		<!-- <div class="tempsq"></div> -->
 		<div class="circle-cursor"></div>
 		<div class="doch-letter" id="d">D</div>
 		<div class="doch-letter" id="o">O</div>
@@ -302,7 +308,7 @@
 		<div class="doch-letter" id="h">H</div>
 		<div class="navbar">
 			<p href="index.html" class="navb">Home</p>
-            <p href="about.html" class="navb">About</p>
+            <p onclick="ab()" class="navb">About</p>
             <p href="contact.html" class="navb">Contact</p>
 		</div>
 		<div class="about">	
@@ -324,11 +330,34 @@
 	<script>
 
 		document.addEventListener('DOMContentLoaded', function() {
+
+			gsap.from(".container",0.56,{
+				delay:2,
+				y:700
+			})
+			gsap.to(".container",0.56,{
+				delay:1.8,
+				opacity:1
+			})
+			gsap.to("#bgimage",1.5,{
+				delay:0.65,
+				opacity:1
+			})
+
+			const techButton = document.getElementById('tech');
+
+			techButton.addEventListener('click', function() {
+				// Handle the click event
+				console.log('Tech button clicked!');
+
+				// Navigate to the desired URL
+				window.location.href = '/tech';
+
+				// If you want to prevent the default behavior (e.g., navigating to the href), uncomment the next line
+				event.preventDefault();
+			});
             const circleCursor = document.querySelector('.circle-cursor');
 			const dochLetters = document.querySelectorAll('.doch-letter');
-			const sp=document.getElementById('cravingspan');
-			const p=sp.getBoundingClientRect();
-			console.log(p.x);
 			
             document.addEventListener('mousemove', function(e) {
                 const x = e.clientX - window.innerWidth / 2;
@@ -337,11 +366,12 @@
                 circleCursor.style.transform = `translate(${x}px, ${y}px)`;
 				const mouseX = e.clientX / window.innerWidth;
 	            const mouseY = e.clientY / window.innerHeight;
-				console.log(mouseX, mouseY);
+				//console.log(mouseX, mouseY);
 				const d=document.getElementById('d');
 				const o=document.getElementById('o');
 				const c=document.getElementById('c');
 				const h=document.getElementById('h');
+				const sp=document.getElementById('cravingspan');
                 if (mouseX < 0.12 &&mouseX>0.053 && mouseY > 0.4 && mouseY<0.5) {
 					d.style.color="#FFFFFF";
 					o.style.color="#042F44";
@@ -375,13 +405,15 @@
                     circleCursor.style.width = '80px';
                     circleCursor.style.height = '80px';
 				}else if(mouseX>0.78 && mouseX<0.9 &&mouseY<0.74 && mouseY>0.669){
-					console.log(x,y);
+					//console.log(x,y);
 					// 0.84 0.7
-					circleCursor.style.transform = `translate(530px, 160px)`;
+					const k=sp.getBoundingClientRect();
+					//console.log(k.x,k.y);
+					//circleCursor.style.transform = `translate(530px, 160px)`;
 		
-					circleCursor.style.width = '70px';
-                    circleCursor.style.height = '70px';
-					sp.style.backgroundColor = "#042f44dc";
+					circleCursor.style.width = '65px';
+                    circleCursor.style.height = '65px';
+					//sp.style.backgroundColor = "#042f44dc";
 					circleCursor.style.opacity = "0";
 
 				}
@@ -399,17 +431,17 @@
             });
         });
         
-        window.addEventListener('load', function () {
-            var bgImage = document.getElementById('bgimage');
-            bgImage.style.opacity = 1;
-			var con=document.querySelectorAll('.container');
-			con[0].style.opacity = 1;
-			var navbar = document.querySelectorAll('.navbar');
-			navbar[0].style.opacity=1;
+        // window.addEventListener('load', function () {
+        //     var bgImage = document.getElementById('bgimage');
+        //     bgImage.style.opacity = 1;
+		// 	var con=document.querySelectorAll('.container');
+		// 	con[0].style.opacity = 1;
+		// 	var navbar = document.querySelectorAll('.navbar');
+		// 	navbar[0].style.opacity=1;
 
-			var ab = document.querySelectorAll('.about');
-			ab[0].style.opacity=1;
-        });
+		// 	var ab = document.querySelectorAll('.about');
+		// 	ab[0].style.opacity=1;
+        // });
 
 		
 		function getLocation() {
@@ -425,6 +457,14 @@
 			console.log(position.coords.longitude);
 		}
 		getLocation();
+
+		//const t=document.querySelector(".tempsq");
+
+		f//unction ab(){
+		//	t.style.transform="rotate(-90deg)";
+		//}
+
+		
 
 		
     </script>
