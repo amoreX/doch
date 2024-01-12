@@ -2,14 +2,17 @@
 	<head>
 		<title>Tech</title>
 		<style>
+            body{
+                overflow:auto;
+            }
 			.container{
                 display:flex;
                 justify-content: center;
                 flex-direction: column;
-                height:100vh;
+                height:auto;
 				gap:11px;
-                align-items: center;
                 background-color:transparent;
+                overflow:auto;
             }
             .inn{
                 color: #000000;
@@ -55,9 +58,19 @@
                 box-shadow:0px 0px 5px rgba(0, 0, 0, 0.334);
             }
 			.something{
+                padding-top: 10px;
 				display:flex;
 				gap:27px;
+                justify-content: center;
 			}
+            img{
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+                width:100%;
+                max-width: 500px;
+                height: auto;
+            }
 		</style>
 	</head>
 	<body>
@@ -66,20 +79,27 @@
 				<input type="text" name="lat" id="lat" class="inn"placeholder="What you craving?">
 				<input type="submit" value="crave" id="button" class="submit-button">
 			</form>
-			<ul>
+			
 				<% if (news1) { %>
 					<li><div><%= news1 %></div></li>
+                    <% if (img1) { %>
+                        <img src="<%=img1%>"  alt="news">
+                    <% } %>
 				<% } %>
 				
 				<% if (news2) { %>
 					<li><div><%= news2 %></div></li>
+                    <img src="<%=img2%>"  alt="news">
 				<% } %>
 				
 				<% if (news3) { %>
 					<li><div><%= news3 %></div></li>
+                    <img src="<%=img3%>"  alt="news">
 				<% } %>
-			</ul>
+			
+            
 		</div>
+        
 		<script>
 			//cc4e82057511460fa37affd759119e03
 			

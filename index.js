@@ -40,11 +40,15 @@ app.get('/tech', (req, res) =>{
 app.post("/submit",async(req, res)=>{
     var prompt=req.body['lat'];
     console.log(prompt);
-    const news=await axios.get(`https://newsapi.org/v2/everything?q=${prompt}&pageSize=3&language=en&apiKey=cc4e82057511460fa37affd759119e03`);
+    const news=await axios.get(`https://newsapi.org/v2/everything?q=${prompt}&pageSize=5&language=en&apiKey=cc4e82057511460fa37affd759119e03`);
     var newsdata=news.data;
     var article1=newsdata.articles[0].description;
+    var img1=newsdata.articles[0].urlToImage;
     var article2=newsdata.articles[1].description;
+    var img2=newsdata.articles[1].urlToImage;
     var article3=newsdata.articles[2].description;
+    var img3=newsdata.articles[2].urlToImage;
     console.log(newsdata);
-    res.render('tech.ejs',{"news1":article1,"news2":article2,"news3":article3});
+    console.log(img1);
+    res.render('tech.ejs',{"news1":article1,"news2":article2,"news3":article3,"img1":img1,"img2":img2,"img3":img3});
 })
