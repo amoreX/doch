@@ -1,19 +1,64 @@
 <html>
 	<head>
 		<title>Tech</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+	    <link rel="preconnect" href="https://fonts.googleapis.com">
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
 		<style>
             body{
-                overflow:auto;
+                overflow:hidden;
+                margin:0;
+                cursor:none;
+            }
+            #bgimage{
+                z-index: -1;
+                max-width: 100%;
+                width:100%;
+                height:100%;
+                max-height: 100%;  
+                position: absolute;
+                top:0;
+                bottom:0;
+                left:0;
+                right:0;
+                transform:scale(1.4);
+                opacity:0;
+                /* animation:2s fadeIn ease-in-out; */
+                }
+            .circle-cursor {
+                z-index: 1;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background-color: #042f44dc; 
+                position: absolute;
+                pointer-events: none; 
+                transition:  0.1s ease-out;
+                
             }
 			.container{
-                display:flex;
+                cursor: none;
+                z-index: 0;
+                position: absolute;
+                left: 5.3%;
+                top: 4.5%;
+                width: 89vw;
+                height: 7vh;
+                border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px);
+                display: flex;
                 justify-content: center;
-                flex-direction: column;
-                height:auto;
-				gap:11px;
-                background-color:transparent;
-                overflow:auto;
-            }
+                align-items: center;
+                opacity:0;
+                /* animation:2s fadeIn ease-in-out; */
+                
+		    }
             .inn{
                 color: #000000;
                 background-color: rgba(255, 255, 255, 0.2);
@@ -22,46 +67,54 @@
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
                 padding: 10px 15px;
                 font-size: 16px;
-                transition: 0.38s ease;
+                transition: 0.38s ease-in-out;
                 outline: none;
                 width: fit-content;
                 height:100% ;
                 backdrop-filter: blur(200px);
+                cursor:none;
                 resize:none; /* maa chudaye resize  */
             }
             .inn:focus{
-                transform: scale(1.15);
+                transform: scale(1.1);
                 box-shadow: none;
-                border-radius:8px;
-                border:solid 0.3px rgba(0, 0, 0);
-                box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.404);
-				padding-right: 16px;
+                border-radius:16px;
+                /* border:solid 0.3px rgba(0, 0, 0); */
+                /* box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.404); */
+				padding-right: 500px;
 
             }
+            .inn:focus + .submit-button{
+                transform:translateX(30px);
+            }
 			.submit-button{
-                font: 16px Instrument Sans, sans-serif;;
+                font: 48px;
                 background-color: rgba(255, 255, 255, 0.201);
-                padding:24px;
-                padding-top:8px;
-                padding-bottom:8px;
+                padding:16px;
+                padding-top:5px;
+                padding-bottom:5px;
+                font-family: 'Italiana', sans-serif;
+                font-weight: 800;
                 border-radius:8px;
-                border:solid 0.3px rgba(0, 0, 0);
+                border: solid 1px rgba(0, 0, 0, 0.119);
                 transition:0.29s ease-in-out;
                 backdrop-filter: blur(11px);
-                font: 500 16px Atkinson Hyperlegible, -apple-system, Roboto, Helvetica, sans-serif;
+                color:#042F44;
+                cursor:none;
             }
             .submit-button:hover{
                 transform: scale(1.1);
-                border:solid 0.1px rgba(0, 0, 0, 0.53);
-                background-color: rgba(58, 58, 58, 0.564);
+                background-color:#042f4494 ;
                 color:white;
                 box-shadow:0px 0px 5px rgba(0, 0, 0, 0.334);
             }
 			.something{
-                padding-top: 10px;
+                position:absolute;
+                top:10%;
 				display:flex;
 				gap:27px;
                 justify-content: center;
+                z-index: 2;
 			}
             img{
                 display:block;
@@ -71,16 +124,35 @@
                 max-width: 500px;
                 height: auto;
             }
+            .tech{
+                z-index: 3;
+                position:absolute;
+                left:2.5%;
+                font-family: 'Italiana', sans-serif;
+                font-size:38px;
+                font-weight: 400;
+                color: #083F5D;
+                transition:0.38s ease-in-out;
+
+            }
+            .tech:hover{
+                top:11%;
+                font-family: 'Italianno', cursive;
+            }
+            
 		</style>
 	</head>
 	<body>
+        <img id="bgimage" src="https://cdn.discordapp.com/attachments/1181225884825419787/1193907469383127190/background.jpg?ex=65ae6bfa&is=659bf6fa&hm=3a8ef43b230b8ff08c13463e7afd213be9d3a17d870b40424f63a9b1202106d8&" alt="background">
+        <div class="circle-cursor"></div>
 		<div class="container">
 			<form action="/submit" class="something" method="POST" >
 				<input type="text" name="lat" id="lat" class="inn"placeholder="<%=place%>">
 				<input type="submit" value="Crave" id="button" class="submit-button">
 			</form>
+                <div class="tech">TECH</div>
 			
-				<% if (news1) { %>
+				<!-- <% if (news1) { %>
 					<li><div><%= news1 %></div></li>
                     <% if (img1) { %>
                         <img src="<%=img1%>"  alt="news">
@@ -95,13 +167,61 @@
 				<% if (news3) { %>
 					<li><div><%= news3 %></div></li>
                     <img src="<%=img3%>"  alt="news">
-				<% } %>
+				<% } %> -->
 			
             
 		</div>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
 		<script>
 			//cc4e82057511460fa37affd759119e03
+            document.addEventListener('DOMContentLoaded', function() {
+
+                gsap.from(".container",1.19,{
+                    delay:1.75,
+                    transform:"scale(0.1)",
+                    y:-100
+                })
+                gsap.to(".container",0.65,{
+                    delay:1.2,
+                    opacity:1
+                })
+                gsap.to("#bgimage",1.5,{
+                    delay:0.65,
+                    opacity:1
+                })
+
+                const circleCursor = document.querySelector('.circle-cursor');
+
+                document.addEventListener('mousemove', function(e) {
+                    const x = e.clientX;
+                    const y = e.clientY; //same concept as parallax 
+                    circleCursor.style.transform = `translate(${x}px, ${y}px)`;
+                });
+                const sp=document.getElementById("button");
+                sp.addEventListener("mouseover",function(e){
+                    circleCursor.style.width = '45px';
+                    circleCursor.style.height = '45px';
+                    circleCursor.style.opacity = "0";
+                })
+                sp.addEventListener("mouseleave",function(e){
+                    circleCursor.style.width = '25px';
+                    circleCursor.style.height = '25px';
+                    circleCursor.style.opacity = "1";
+                })
+                const t=document.querySelector(".tech");
+                t.addEventListener("mouseover",function(e){
+                    circleCursor.style.width = '40px';
+                    circleCursor.style.height = '40px';
+                    circleCursor.style.opacity = "0";
+
+                })
+                t.addEventListener("mouseleave",function(e){
+                    circleCursor.style.width = '25px';
+                    circleCursor.style.height = '25px';
+                    circleCursor.style.opacity = "1";
+
+                })
+            });
 			
 		</script>
 	</body>
