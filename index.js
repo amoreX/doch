@@ -34,21 +34,43 @@ app.get('/', (req, res) => {
 
 app.get('/tech', (req, res) =>{
     console.log('Getting tech');
-    res.render('tech.ejs',{"news1":"","news2":"","news3":""});
+    res.render('tech.ejs',{"news1":"","news2":"","news3":"","place":"What are you craving?"});
 });
 
 app.post("/submit",async(req, res)=>{
-    var prompt=req.body['lat'];
-    console.log(prompt);
-    const news=await axios.get(`https://newsapi.org/v2/everything?q=${prompt}&pageSize=5&language=en&apiKey=cc4e82057511460fa37affd759119e03`);
-    var newsdata=news.data;
-    var article1=newsdata.articles[0].description;
-    var img1=newsdata.articles[0].urlToImage;
-    var article2=newsdata.articles[1].description;
-    var img2=newsdata.articles[1].urlToImage;
-    var article3=newsdata.articles[2].description;
-    var img3=newsdata.articles[2].urlToImage;
-    console.log(newsdata);
-    console.log(img1);
-    res.render('tech.ejs',{"news1":article1,"news2":article2,"news3":article3,"img1":img1,"img2":img2,"img3":img3});
+    try {
+        var prompt = req.body['lat'];
+        console.log(prompt);
+        
+        const news = await axios.get(`https://newsapi.org/v2/everything?q=${prompt}&pageSize=5&language=en&apiKey=cc4e82057511460fa37affd759119e03`);
+        
+        if (!news.data.articles || news.data.articles.length === 0) {
+            return res.status(404).render('tech.ejs',{"news1":"","news2":"","news3":"","place":"damn that doesnt exist"});
+        }
+
+        var newsdata = news.data;
+        var article1 = newsdata.articles[0].description;
+        var img1 = newsdata.articles[0].urlToImage;
+        var article2 = newsdata.articles[1].description;
+        var img2 = newsdata.articles[1].urlToImage;
+        var article3 = newsdata.articles[2].description;
+        var img3 = newsdata.articles[2].urlToImage;
+
+        console.log(newsdata);
+        console.log(img1);
+
+        res.render('tech.ejs', {
+            "news1": article1,
+            "news2": article2,
+            "news3": article3,
+            "img1": img1,
+            "img2": img2,
+            "img3": img3,
+            "place":"What are you craving?"
+        });
+    } catch (error) {
+        console.error("Error fetching data:", error.message);
+        // Handle the error by sending an error response to the client
+        res.status(500).render('tech.ejs',{"news1":"","news2":"","news3":"","place":"Please enter valid query"});
+    }
 })

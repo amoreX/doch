@@ -76,8 +76,8 @@
 	<body>
 		<div class="container">
 			<form action="/submit" class="something" method="POST" >
-				<input type="text" name="lat" id="lat" class="inn"placeholder="What you craving?">
-				<input type="submit" value="crave" id="button" class="submit-button">
+				<input type="text" name="lat" id="lat" class="inn"placeholder="<%=place%>">
+				<input type="submit" value="Crave" id="button" class="submit-button">
 			</form>
 			
 				<% if (news1) { %>
@@ -89,7 +89,7 @@
 				
 				<% if (news2) { %>
 					<li><div><%= news2 %></div></li>
-                    <img src="<%=img2%>"  alt="news">
+                    <img src="<%=img2%>"  alt="oopsie no image :(">
 				<% } %>
 				
 				<% if (news3) { %>
