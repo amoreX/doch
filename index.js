@@ -42,8 +42,8 @@ app.post("/submit",async(req, res)=>{
         var prompt = req.body['lat'];
         console.log(prompt);
         
-        const news = await axios.get(`https://newsapi.org/v2/everything?q=${prompt}&pageSize=9&language=en&apiKey=cc4e82057511460fa37affd759119e03`);
-        
+        const news = await axios.get(`https://newsapi.org/v2/everything?q=${prompt}&pageSize=9&language=en&apiKey=49d58dd4dc4d4b11b4a20e32911bd048`);
+        console.log(news.data);
         if (!news.data.articles || news.data.articles.length === 0) {
             return res.status(404).render('tech.ejs',{"news1":"","news2":"","news3":"","news4":"","news5":"","news6":"","news7":"","news8":"","url1":"","url2":"","url3":"","url4":"","url5":"","url6":"","url7":"","url8":"","place":"damn that doesnt exist"});
         }
