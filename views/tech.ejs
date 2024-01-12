@@ -7,6 +7,9 @@
 	    <link rel="preconnect" href="https://fonts.googleapis.com">
 	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 		<style>
             body{
                 overflow:hidden;
@@ -116,14 +119,60 @@
                 justify-content: center;
                 z-index: 2;
 			}
-            img{
-                /* display:block;
-                margin-left: auto;
-                margin-right: auto; */
-                /* object-fit: contain; */
-                width:50%;
-                max-width: 500px;
-                height: auto;
+            .row11 img,
+            .row12 img,
+            .row13 img,
+            .row14 img,
+            .row21 img,
+            .row22 img,
+            .row23 img,
+            .row24 img {
+                width: 100%;
+                max-height: 70%; 
+                object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+                border-radius: 19px; 
+                margin-bottom: 10px;
+            }
+            .row11 ,
+            .row12 ,
+            .row13 ,
+            .row14 ,
+            .row21 ,
+            .row22 ,
+            .row23 ,
+            .row24 {
+                overflow: hidden;
+                backdrop-filter:none;
+            }
+            .row11 div,
+            .row12 div,
+            .row13 div,
+            .row14 div,
+            .row21 div,
+            .row22 div,
+            .row23 div,
+            .row24 div {
+                overflow: hidden; 
+                text-overflow: ellipsis; /* Display ellipsis (...) for overflowing text */
+                word-wrap: break-word; 
+                max-width: 100%;
+                padding: 0 10px;
+                color:white;
+                font-family: 'PT Sans', sans-serif;
+                margin-bottom: 10px; 
+            }
+            .row11 div,
+            .row12 div,
+            .row13 div,
+            .row14 div {
+                overflow: hidden; 
+                text-overflow: ellipsis; /* Display ellipsis (...) for overflowing text */
+                word-wrap: break-word; 
+                max-width: 100%;
+                padding: 0 10px;
+                color:#083F5D;
+                font-family: 'PT Sans', sans-serif;
+                margin-bottom: 10px; 
             }
             .tech{
                 z-index: 3;
@@ -137,8 +186,7 @@
 
             }
             .tech:hover{
-                top:11%;
-                font-family: 'Italianno', cursive;
+                font-weight:900;
             }
             .container{
                 display:flex;
@@ -149,7 +197,24 @@
                 z-index: 0;
                 position: absolute;
                 left: 5.3%;
-                top: 20%;
+                top: 15%;
+                width: 89vw;
+                height: 40vh;
+                /* border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px); */
+                display: flex;
+                gap:30px;
+                opacity:1;
+            }
+            .cards2{
+                cursor: none;
+                z-index: 0;
+                position: absolute;
+                /* left: 5.3%; */
+                top: 110%;
                 width: 89vw;
                 height: 40vh;
                 /* border-radius: 19px;
@@ -172,7 +237,7 @@
             }
             .row12{
                 /* position:absolute;
-                left:20%; */
+                left:2.5%; */
                 border-radius: 19px;
                 border: 2px solid rgba(255, 255, 255, 0.38);
                 background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
@@ -180,13 +245,67 @@
                 backdrop-filter: blur(19.799999237060547px);
             }
             .row13{
+                /* position:absolute;
+                left:2.5%; */
                 border-radius: 19px;
                 border: 2px solid rgba(255, 255, 255, 0.38);
                 background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
                 box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
                 backdrop-filter: blur(19.799999237060547px);
             }
+            .row14{
+                /* position:absolute;
+                left:2.5%; */
+                border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px);
+            }
+            .row21{
+                /* position:absolute;
+                left:2.5%; */
+                border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px);
+            }
+            .row22{
+                /* position:absolute;
+                left:2.5%; */
+                border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px);
+            }
+            .row23{
+                /* position:absolute;
+                left:2.5%; */
+                border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px);
+            }
+            .row24{
+                /* position:absolute;
+                left:2.5%; */
+                border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px);
+            }
+            a {
+                text-decoration: none;
+                color: inherit; 
+                cursor:none;
+            }
             
+            
+                      
 		</style>
 	</head>
 	<body>
@@ -201,28 +320,65 @@
                     <div class="tech">TECH</div>
             </div>
             <div class="cards1">
-				    <div class="row11">
+				    <a class="row11" href="<%= url1 %>" target="_blank" rel="noopener noreferrer"> 
                         <% if (news1) { %>
                             <% if (img1) { %>
                                 <img src="<%=img1%>"  alt="news">
                             <% } %>
                             <div><%= news1 %></div>
                         <% } %>
-                    </div>
+                    </a>
                         
-				    <div class="row12">
+				    <a class="row12" href="<%= url2 %>" target="_blank" rel="noopener noreferrer">
                         <% if (news2) { %>
                             <img src="<%=img2%>"  alt="oopsie no image :(">
 					    <div><%= news2 %></div>
-				    <% } %>
-                    </div>
+				        <% } %>
+                    </a>
 				
-				    <div class="row13">
+				    <a class="row13" href="<%= url3 %>" target="_blank" rel="noopener noreferrer">
                         <% if (news3) { %>
                             <img src="<%=img3%>"  alt="oopsie no image :(">
                             <div><%= news3 %></div>
-			    	<% } %>
-                    </div>
+			    	    <% } %>
+                    </a>
+
+                    <a class="row14" href="<%= url4 %>" target="_blank" rel="noopener noreferrer">
+                        <% if (news4) { %>
+                            <img src="<%=img4%>"  alt="oopsie no image :(">
+                            <div><%= news4 %></div>
+			    	    <% } %>
+                    </a>
+            <div class="cards2">
+                    <a class="row21" href="<%= url5 %>" target="_blank" rel="noopener noreferrer">
+                        <% if (news5) { %>
+                            <% if (img5) { %>
+                                <img src="<%=img5%>"  alt="news">
+                            <% } %>
+                            <div><%= news5 %></div>
+                        <% } %>
+                    </a>
+                        
+                    <a class="row22" href="<%= url6 %>" target="_blank" rel="noopener noreferrer">
+                        <% if (news6) { %>
+                            <img src="<%=img6%>"  alt="oopsie no image :(">
+                            <div><%= news6 %></div>
+                        <% } %>
+                    </a>
+                    
+                    <a class="row23" href="<%= url7 %>" target="_blank" rel="noopener noreferrer">
+                        <% if (news7) { %>
+                            <img src="<%=img7%>"  alt="oopsie no image :(">
+                            <div><%= news7 %></div>
+                        <% } %>
+                    </a>
+    
+                    <a class="row24" href="<%= url8 %>" target="_blank" rel="noopener noreferrer">
+                        <% if (news8) { %>
+                            <img src="<%=img8%>"  alt="oopsie no image :(">
+                            <div><%= news8 %></div>
+                        <% } %>
+                    </a>
 			
             
 		    </div>
@@ -257,6 +413,26 @@
                     delay:2.15,
                     y:700
                 })
+                gsap.from(".row14",1.19,{
+                    delay:2.35,
+                    y:700
+                })
+                gsap.from(".row21",1.19,{
+                    delay:1.95,
+                    y:700
+                })
+                gsap.from(".row22",1.19,{
+                    delay:2.15,
+                    y:700
+                })
+                gsap.from(".row23",1.19,{
+                    delay:2.35,
+                    y:700
+                })
+                gsap.from(".row24",1.19,{
+                    delay:2.55,
+                    y:700
+                })
 
                 const circleCursor = document.querySelector('.circle-cursor');
 
@@ -289,8 +465,80 @@
                     circleCursor.style.opacity = "1";
 
                 })
+                const r1=document.querySelector(".row11");
+                r1.addEventListener("mouseover",function(e){
+                    r1.style.transform = "scale(1.1)";
+                    r1.style.transition = "transform 0.29s ease-in-out";
+                });
+                r1.addEventListener("mouseleave",function(e){
+                    r1.style.transform = "scale(1)";
+                    r1.style.transition = "transform 0.29s ease-in-out";
+                });
+                const r4=document.querySelector(".row14");
+                r4.addEventListener("mouseover",function(e){
+                    r4.style.transition = "transform 0.29s ease-in-out";
+                    r4.style.transform = "scale(1.1)";
+                });
+                r4.addEventListener("mouseleave",function(e){
+                    r4.style.transform = "scale(1)";
+                    r4.style.transition = "transform 0.29s ease-in-out";
+                });
+                const r3=document.querySelector(".row13");
+                r3.addEventListener("mouseover",function(e){
+                    r3.style.transform = "scale(1.1)";
+                    r3.style.transition = "transform 0.29s ease-in-out";
+                });
+                r3.addEventListener("mouseleave",function(e){
+                    r3.style.transform = "scale(1)";
+                    r3.style.transition = "transform 0.29s ease-in-out";
+                })
+                const r2=document.querySelector(".row12");
+                r2.addEventListener("mouseover",function(e){
+                    r2.style.transform = "scale(1.1)";
+                    r2.style.transition = "transform 0.29s ease-in-out";
+                });
+                r2.addEventListener("mouseleave",function(e){
+                    r2.style.transform = "scale(1)";
+                    r2.style.transition = "transform 0.29s ease-in-out";
+                })
+                const r21=document.querySelector(".row21");
+                r21.addEventListener("mouseover",function(e){
+                    r21.style.transform = "scale(1.1)";
+                    r21.style.transition = "transform 0.29s ease-in-out";
+                });
+                r21.addEventListener("mouseleave",function(e){
+                    r21.style.transform = "scale(1)";
+                    r21.style.transition = "transform 0.29s ease-in-out";
+                });
+                const r22=document.querySelector(".row22");
+                r22.addEventListener("mouseover",function(e){
+                    r22.style.transition = "transform 0.29s ease-in-out";
+                    r22.style.transform = "scale(1.1)";
+                });
+                r22.addEventListener("mouseleave",function(e){
+                    r22.style.transform = "scale(1)";
+                    r22.style.transition = "transform 0.29s ease-in-out";
+                });
+                const r23=document.querySelector(".row23");
+                r23.addEventListener("mouseover",function(e){
+                    r23.style.transform = "scale(1.1)";
+                    r23.style.transition = "transform 0.29s ease-in-out";
+                });
+                r23.addEventListener("mouseleave",function(e){
+                    r23.style.transform = "scale(1)";
+                    r23.style.transition = "transform 0.29s ease-in-out";
+                })
+                const r24=document.querySelector(".row24");
+                r24.addEventListener("mouseover",function(e){
+                    r24.style.transform = "scale(1.1)";
+                    r24.style.transition = "transform 0.29s ease-in-out";
+                });
+                r24.addEventListener("mouseleave",function(e){
+                    r24.style.transform = "scale(1)";
+                    r24.style.transition = "transform 0.29s ease-in-out";
+                })
+
             });
-			
 		</script>
 	</body>
 </html>
