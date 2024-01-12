@@ -39,7 +39,7 @@
                 transition:  0.1s ease-out;
                 
             }
-			.container{
+			.container1{
                 cursor: none;
                 z-index: 0;
                 position: absolute;
@@ -117,10 +117,11 @@
                 z-index: 2;
 			}
             img{
-                display:block;
+                /* display:block;
                 margin-left: auto;
-                margin-right: auto;
-                width:100%;
+                margin-right: auto; */
+                /* object-fit: contain; */
+                width:50%;
                 max-width: 500px;
                 height: auto;
             }
@@ -139,55 +140,122 @@
                 top:11%;
                 font-family: 'Italianno', cursive;
             }
+            .container{
+                display:flex;
+                flex-direction: column;
+            }
+            .cards1{
+                cursor: none;
+                z-index: 0;
+                position: absolute;
+                left: 5.3%;
+                top: 20%;
+                width: 89vw;
+                height: 40vh;
+                /* border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px); */
+                display: flex;
+                gap:30px;
+                opacity:1;
+            }
+            .row11{
+                /* position:absolute;
+                left:2.5%; */
+                border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px);
+            }
+            .row12{
+                /* position:absolute;
+                left:20%; */
+                border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px);
+            }
+            .row13{
+                border-radius: 19px;
+                border: 2px solid rgba(255, 255, 255, 0.38);
+                background: linear-gradient(110deg, rgba(36, 118, 148, 0.19) 9.98%, rgba(248, 161, 148, 0.19) 92.36%);
+                box-shadow: 0px 4px 168.5px 0px rgba(0, 0, 0, 0.24);
+                backdrop-filter: blur(19.799999237060547px);
+            }
             
 		</style>
 	</head>
 	<body>
         <img id="bgimage" src="https://cdn.discordapp.com/attachments/1181225884825419787/1193907469383127190/background.jpg?ex=65ae6bfa&is=659bf6fa&hm=3a8ef43b230b8ff08c13463e7afd213be9d3a17d870b40424f63a9b1202106d8&" alt="background">
         <div class="circle-cursor"></div>
-		<div class="container">
-			<form action="/submit" class="something" method="POST" >
-				<input type="text" name="lat" id="lat" class="inn"placeholder="<%=place%>">
-				<input type="submit" value="Crave" id="button" class="submit-button">
-			</form>
-                <div class="tech">TECH</div>
-			
-				<!-- <% if (news1) { %>
-					<li><div><%= news1 %></div></li>
-                    <% if (img1) { %>
-                        <img src="<%=img1%>"  alt="news">
-                    <% } %>
-				<% } %>
+        <div class="container">
+            <div class="container1">
+                <form action="/submit" class="something" method="POST" >
+                    <input type="text" name="lat" id="lat" class="inn"placeholder="<%=place%>">
+                    <input type="submit" value="Crave" id="button" class="submit-button">
+                </form>
+                    <div class="tech">TECH</div>
+            </div>
+            <div class="cards1">
+				    <div class="row11">
+                        <% if (news1) { %>
+                            <% if (img1) { %>
+                                <img src="<%=img1%>"  alt="news">
+                            <% } %>
+                            <div><%= news1 %></div>
+                        <% } %>
+                    </div>
+                        
+				    <div class="row12">
+                        <% if (news2) { %>
+                            <img src="<%=img2%>"  alt="oopsie no image :(">
+					    <div><%= news2 %></div>
+				    <% } %>
+                    </div>
 				
-				<% if (news2) { %>
-					<li><div><%= news2 %></div></li>
-                    <img src="<%=img2%>"  alt="oopsie no image :(">
-				<% } %>
-				
-				<% if (news3) { %>
-					<li><div><%= news3 %></div></li>
-                    <img src="<%=img3%>"  alt="news">
-				<% } %> -->
+				    <div class="row13">
+                        <% if (news3) { %>
+                            <img src="<%=img3%>"  alt="oopsie no image :(">
+                            <div><%= news3 %></div>
+			    	<% } %>
+                    </div>
 			
             
-		</div>
+		    </div>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
 		<script>
 			//cc4e82057511460fa37affd759119e03
             document.addEventListener('DOMContentLoaded', function() {
 
-                gsap.from(".container",1.19,{
+                gsap.from(".container1",1.19,{
                     delay:1.75,
                     transform:"scale(0.1)",
                     y:-100
                 })
-                gsap.to(".container",0.65,{
+                gsap.to(".container1",0.65,{
                     delay:1.2,
                     opacity:1
                 })
                 gsap.to("#bgimage",1.5,{
                     delay:0.65,
                     opacity:1
+                })
+                gsap.from(".row11",1.19,{
+                    delay:1.75,
+                    y:700
+                })
+                gsap.from(".row12",1.19,{
+                    delay:1.95,
+                    y:700
+                })
+                gsap.from(".row13",1.19,{
+                    delay:2.15,
+                    y:700
                 })
 
                 const circleCursor = document.querySelector('.circle-cursor');
