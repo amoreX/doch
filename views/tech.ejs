@@ -303,7 +303,26 @@
                 color: inherit; 
                 cursor:none;
             }
-            
+            .nig::before{
+                content:"crave";
+                color:white;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 32px;
+                opacity:0;
+                font-family: 'Italiana', sans-serif;
+                position:absolute;
+                width:100%;
+                height:100%;
+                z-index: 10;
+                
+                background-color: rgba(0, 0, 0, 0.674);
+                transition:0.29s ease-in-out;
+            }
+            .nig:hover::before{
+                opacity:1;
+            }
             
                       
 		</style>
@@ -320,7 +339,7 @@
                     <div class="tech">TECH</div>
             </div>
             <div class="cards1">
-				    <a class="row11" href="<%= url1 %>" target="_blank" rel="noopener noreferrer"> 
+				    <a class="row11 nig" href="<%= url1 %>" target="_blank" rel="noopener noreferrer"> 
                         <% if (news1) { %>
                             <% if (img1) { %>
                                 <img src="<%=img1%>"  alt="news">
@@ -329,28 +348,28 @@
                         <% } %>
                     </a>
                         
-				    <a class="row12" href="<%= url2 %>" target="_blank" rel="noopener noreferrer">
+				    <a class="row12 nig" href="<%= url2 %>" target="_blank" rel="noopener noreferrer">
                         <% if (news2) { %>
                             <img src="<%=img2%>"  alt="oopsie no image :(">
 					    <div><%= news2 %></div>
 				        <% } %>
                     </a>
 				
-				    <a class="row13" href="<%= url3 %>" target="_blank" rel="noopener noreferrer">
+				    <a class="row13 nig" href="<%= url3 %>" target="_blank" rel="noopener noreferrer">
                         <% if (news3) { %>
                             <img src="<%=img3%>"  alt="oopsie no image :(">
                             <div><%= news3 %></div>
 			    	    <% } %>
                     </a>
 
-                    <a class="row14" href="<%= url4 %>" target="_blank" rel="noopener noreferrer">
+                    <a class="row14 nig" href="<%= url4 %>" target="_blank" rel="noopener noreferrer">
                         <% if (news4) { %>
                             <img src="<%=img4%>"  alt="oopsie no image :(">
                             <div><%= news4 %></div>
 			    	    <% } %>
                     </a>
             <div class="cards2">
-                    <a class="row21" href="<%= url5 %>" target="_blank" rel="noopener noreferrer">
+                    <a class="row21 nig" href="<%= url5 %>" target="_blank" rel="noopener noreferrer">
                         <% if (news5) { %>
                             <% if (img5) { %>
                                 <img src="<%=img5%>"  alt="news">
@@ -359,21 +378,21 @@
                         <% } %>
                     </a>
                         
-                    <a class="row22" href="<%= url6 %>" target="_blank" rel="noopener noreferrer">
+                    <a class="row22 nig" href="<%= url6 %>" target="_blank" rel="noopener noreferrer">
                         <% if (news6) { %>
                             <img src="<%=img6%>"  alt="oopsie no image :(">
                             <div><%= news6 %></div>
                         <% } %>
                     </a>
                     
-                    <a class="row23" href="<%= url7 %>" target="_blank" rel="noopener noreferrer">
+                    <a class="row23 nig" href="<%= url7 %>" target="_blank" rel="noopener noreferrer">
                         <% if (news7) { %>
                             <img src="<%=img7%>"  alt="oopsie no image :(">
                             <div><%= news7 %></div>
                         <% } %>
                     </a>
     
-                    <a class="row24" href="<%= url8 %>" target="_blank" rel="noopener noreferrer">
+                    <a class="row24 nig" href="<%= url8 %>" target="_blank" rel="noopener noreferrer">
                         <% if (news8) { %>
                             <img src="<%=img8%>"  alt="oopsie no image :(">
                             <div><%= news8 %></div>
