@@ -303,6 +303,9 @@
                 color: inherit; 
                 cursor:none;
             }
+            .nig{
+                pointer-events: none;
+            }
             .nig::before{
                 content:"crave";
                 color:white;
@@ -452,6 +455,11 @@
                     delay:2.55,
                     y:700
                 })
+                setTimeout(()=>{
+                    Array.from(document.getElementsByClassName("nig")).forEach((el) => {
+                        el.style.pointerEvents = "auto";
+                    });
+                },3000)
 
                 const circleCursor = document.querySelector('.circle-cursor');
 
