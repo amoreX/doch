@@ -504,6 +504,18 @@
 				// If you want to prevent the default behavior (e.g., navigating to the href), uncomment the next line
 				event.preventDefault();
 			});
+			const domButton = document.getElementById('dom');
+
+			domButton.addEventListener('click', function() {
+				// Handle the click event
+				console.log('Domestic button clicked!');
+
+				// Navigate to the desired URL
+				window.location.href = '/dom';
+
+				// If you want to prevent the default behavior (e.g., navigating to the href), uncomment the next line
+				event.preventDefault();
+			});
             const circleCursor = document.querySelector('.circle-cursor');
 			const dochLetters = document.querySelectorAll('.doch-letter');
 			
